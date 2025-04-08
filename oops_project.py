@@ -1,9 +1,31 @@
 class chatbook:
+
+    __user_id = 0
+
     def __init__(self):
+        self.id = chatbook.__user_id
+        chatbook.__user_id += 1
+        self.__name = "Default"
         self.username = ""
         self.password = ""
         self.logged_in = False
-        self.menu()
+        
+        #self.menu() 
+
+    @staticmethod
+    def get_user_id():
+        return chatbook.__user_id
+    
+    @staticmethod
+    def set_id(value):
+        chatbook.__user_id = value
+
+    def get_name(self):
+        return self.__name
+    
+    def set_name(self, value):
+        self.__name = value
+
 
 
     def menu(self):
@@ -26,7 +48,7 @@ class chatbook:
 
         elif user_input == "4":
             self.send_msg()
-            
+
         else:
             exit()
         
